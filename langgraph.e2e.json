@@ -1,0 +1,37 @@
+{
+  "$schema": "https://langgra.ph/schema.json",
+  "python_version": "3.12",
+  "source": {
+    "kind": "uv",
+    "root": "."
+  },
+  "graphs": {
+    "interview": {
+      "path": "./src/stakeholder_intelligence_agent/interview/graph.py:make_graph",
+      "description": "Server-scoped stakeholder interview agent."
+    },
+    "insight": {
+      "path": "./src/stakeholder_intelligence_agent/insight/graph.py:make_graph",
+      "description": "Server-scoped PM insight Deep Agent."
+    }
+  },
+  "checkpointer": {
+    "path": "./src/stakeholder_intelligence_agent/persistence/checkpointer.py:generate_checkpointer"
+  },
+  "http": {
+    "app": "./tests/e2e/agent_server_test_app.py:app",
+    "disable_store": true,
+    "disable_mcp": true,
+    "disable_a2a": true,
+    "disable_ui": true,
+    "disable_webhooks": true,
+    "configurable_headers": {
+      "includes": [],
+      "excludes": ["*token*", "*key*", "authorization", "cookie"]
+    },
+    "logging_headers": {
+      "includes": [],
+      "excludes": ["*token*", "*key*", "authorization", "cookie"]
+    }
+  }
+}

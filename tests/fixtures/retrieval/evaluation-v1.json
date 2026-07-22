@@ -1,0 +1,174 @@
+{
+  "datasetId": "stakeholder-retrieval-evaluation-v1",
+  "version": 1,
+  "syntheticOnly": true,
+  "canary": "ALPHA-CANARY-ORCHID",
+  "rankingOrigin": "Offline deterministic channel fixtures; live Gemini embeddings are not represented.",
+  "documents": [
+    {
+      "chunkId": "chunk-ownership-gap",
+      "sourceId": "source-interview-operations",
+      "text": "The operations manager said no one owns the final approval after the regional handoff, so work often waits overnight. ALPHA-CANARY-ORCHID"
+    },
+    {
+      "chunkId": "chunk-responsibility-matrix",
+      "sourceId": "source-governance-brief",
+      "text": "The responsibility matrix assigns intake to Operations and final approval to Finance, but the escalation owner is blank."
+    },
+    {
+      "chunkId": "chunk-it-dependency",
+      "sourceId": "source-technology-map",
+      "text": "The intake process depends on a legacy integration that has no monitored retry queue; failed transfers require manual IT recovery."
+    },
+    {
+      "chunkId": "chunk-conditional-support",
+      "sourceId": "source-interview-sales",
+      "text": "Sales expressed conditional support for the change if customer exceptions remain visible and the pilot does not add duplicate entry."
+    },
+    {
+      "chunkId": "chunk-confirmed-support",
+      "sourceId": "source-interview-finance",
+      "text": "Finance confirmed support for a limited pilot and volunteered an analyst for weekly reconciliation."
+    },
+    {
+      "chunkId": "chunk-ops-timeline",
+      "sourceId": "source-interview-operations",
+      "text": "Operations stated that the current approval cycle normally takes two business days."
+    },
+    {
+      "chunkId": "chunk-finance-timeline",
+      "sourceId": "source-interview-finance",
+      "text": "Finance stated that the same approval cycle normally takes seven to ten business days because submissions arrive incomplete."
+    },
+    {
+      "chunkId": "chunk-compatible-timeline",
+      "sourceId": "source-policy-note",
+      "text": "The policy target is five business days; this target does not describe actual current cycle time."
+    },
+    {
+      "chunkId": "chunk-facilities",
+      "sourceId": "source-facilities-note",
+      "text": "The office lease review is scheduled for the fourth quarter and has no relationship to the approval workflow."
+    },
+    {
+      "chunkId": "chunk-process-handoff",
+      "sourceId": "source-process-map",
+      "text": "The process map shows intake, regional validation, finance approval, and customer confirmation, with an unowned exception loop between validation and approval."
+    }
+  ],
+  "queries": [
+    {
+      "queryId": "q-operational-ownership",
+      "text": "What operational risks are caused by unclear ownership and handoffs?",
+      "judgments": {
+        "chunk-ownership-gap": 3,
+        "chunk-responsibility-matrix": 2,
+        "chunk-process-handoff": 2
+      },
+      "denseRanking": [
+        "chunk-it-dependency",
+        "chunk-ownership-gap",
+        "chunk-facilities",
+        "chunk-responsibility-matrix",
+        "chunk-process-handoff",
+        "chunk-ops-timeline",
+        "chunk-finance-timeline",
+        "chunk-compatible-timeline"
+      ],
+      "sparseRanking": [
+        "chunk-responsibility-matrix",
+        "chunk-ownership-gap",
+        "chunk-process-handoff",
+        "chunk-it-dependency",
+        "chunk-compatible-timeline",
+        "chunk-facilities"
+      ]
+    },
+    {
+      "queryId": "q-buy-in",
+      "text": "What qualitative evidence shows support or concern about the proposed change?",
+      "judgments": {
+        "chunk-conditional-support": 3,
+        "chunk-confirmed-support": 3
+      },
+      "denseRanking": [
+        "chunk-confirmed-support",
+        "chunk-ownership-gap",
+        "chunk-conditional-support",
+        "chunk-facilities",
+        "chunk-responsibility-matrix"
+      ],
+      "sparseRanking": [
+        "chunk-conditional-support",
+        "chunk-confirmed-support",
+        "chunk-compatible-timeline",
+        "chunk-facilities"
+      ]
+    },
+    {
+      "queryId": "q-cycle-contradiction",
+      "text": "Which sources contradict each other about the current approval cycle time?",
+      "judgments": {
+        "chunk-ops-timeline": 3,
+        "chunk-finance-timeline": 3
+      },
+      "denseRanking": [
+        "chunk-compatible-timeline",
+        "chunk-ops-timeline",
+        "chunk-finance-timeline",
+        "chunk-process-handoff",
+        "chunk-facilities"
+      ],
+      "sparseRanking": [
+        "chunk-finance-timeline",
+        "chunk-ops-timeline",
+        "chunk-compatible-timeline",
+        "chunk-responsibility-matrix"
+      ]
+    },
+    {
+      "queryId": "q-technology-risk",
+      "text": "What technology dependency creates a risk of failed transfers?",
+      "judgments": {
+        "chunk-it-dependency": 3,
+        "chunk-ownership-gap": 1
+      },
+      "denseRanking": [
+        "chunk-process-handoff",
+        "chunk-it-dependency",
+        "chunk-ownership-gap",
+        "chunk-facilities",
+        "chunk-responsibility-matrix"
+      ],
+      "sparseRanking": [
+        "chunk-it-dependency",
+        "chunk-process-handoff",
+        "chunk-ownership-gap",
+        "chunk-facilities"
+      ]
+    },
+    {
+      "queryId": "q-process-exception",
+      "text": "Where does the process contain an unowned exception or escalation gap?",
+      "judgments": {
+        "chunk-process-handoff": 3,
+        "chunk-responsibility-matrix": 2,
+        "chunk-ownership-gap": 2
+      },
+      "denseRanking": [
+        "chunk-facilities",
+        "chunk-process-handoff",
+        "chunk-ownership-gap",
+        "chunk-responsibility-matrix",
+        "chunk-it-dependency"
+      ],
+      "sparseRanking": [
+        "chunk-process-handoff",
+        "chunk-responsibility-matrix",
+        "chunk-ownership-gap",
+        "chunk-it-dependency",
+        "chunk-facilities"
+      ]
+    }
+  ]
+}

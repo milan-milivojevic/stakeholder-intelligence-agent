@@ -1,0 +1,147 @@
+{
+  "version": 2,
+  "status": "VERIFIED_OFFLINE",
+  "syntheticOnly": true,
+  "generatedBy": "scripts/fixtures/generate_binary_fixtures.py",
+  "verifiedAtUtc": "2026-07-15T05:16:12.769011Z",
+  "canaries": {
+    "engagementAlpha": "ALPHA-CANARY-ORCHID",
+    "engagementBeta": "BETA-CANARY-COBALT"
+  },
+  "uploadContexts": [
+    "stakeholder",
+    "project_manager"
+  ],
+  "mandatoryFormats": [
+    {
+      "format": "PDF",
+      "status": "VERIFIED_OFFLINE",
+      "files": [
+        "alpha-mixed-content.pdf",
+        "alpha-scanned-workshop-note.pdf"
+      ]
+    },
+    {
+      "format": "DOCX",
+      "status": "VERIFIED_OFFLINE",
+      "files": [
+        "alpha-stakeholder-brief.docx"
+      ]
+    },
+    {
+      "format": "PPTX",
+      "status": "VERIFIED_OFFLINE",
+      "files": [
+        "alpha-evidence-deck.pptx"
+      ]
+    },
+    {
+      "format": "XLSX",
+      "status": "VERIFIED_OFFLINE",
+      "files": [
+        "alpha-stakeholder-signals.xlsx"
+      ]
+    },
+    {
+      "format": "PNG",
+      "status": "VERIFIED_OFFLINE",
+      "files": [
+        "alpha-organization-chart.png",
+        "alpha-influence-chart.png"
+      ]
+    },
+    {
+      "format": "JPEG",
+      "status": "VERIFIED_OFFLINE",
+      "files": [
+        "beta-process-map.jpg"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "name": "alpha-evidence-deck.pptx",
+      "bytes": 84004,
+      "sha256": "b338b2dd5ebe62b4fdc86c7a0eae97ee9b9db76d45b6444a4cd0c6e44b321665",
+      "purpose": "Four-slide native text, table, chart, embedded process diagram, and source attribution fixture."
+    },
+    {
+      "name": "alpha-influence-chart.png",
+      "bytes": 30896,
+      "sha256": "ffb52fa3a49e197aae335a81fed1270e9db76ef7417eba63a41d6edb4beffebd",
+      "purpose": "Changed-content PNG used for monotonic version and rollback tests."
+    },
+    {
+      "name": "alpha-mixed-content.pdf",
+      "bytes": 121818,
+      "sha256": "b186f1c684a0499a6999fc58949bdb60758d3c112c6c4e78465feebb857f5cd6",
+      "purpose": "Native PDF text, table, chart, image, and page-locator fixture."
+    },
+    {
+      "name": "alpha-organization-chart.png",
+      "bytes": 67730,
+      "sha256": "6f155c80e9b2bf8e7ead728a0dceb9f705e95a1d13239b2139e400c309d0188b",
+      "purpose": "Whole-image organization chart, OCR, hostile-instruction, and alpha canary fixture."
+    },
+    {
+      "name": "alpha-scanned-workshop-note.pdf",
+      "bytes": 201634,
+      "sha256": "812bf8808ebb9bf500f6b588bffc9b9d93140880c1d81891752bb6eea6770a07",
+      "purpose": "Image-only PDF proving forced full-page English OCR and hostile-evidence preservation."
+    },
+    {
+      "name": "alpha-stakeholder-brief.docx",
+      "bytes": 99521,
+      "sha256": "3f899b65dc00d88b51cc884d1489f003376b7ee5810a9694380d5f1b83cac6a4",
+      "purpose": "Headings, paragraphs, merged table, embedded diagram, header, footer, and normalized page mapping fixture."
+    },
+    {
+      "name": "alpha-stakeholder-signals.xlsx",
+      "bytes": 70956,
+      "sha256": "31b411f641edfb45be9f4044e046b873e30978a1235908043aa5cf380e73068e",
+      "purpose": "Multi-sheet cells, formula and cached value, merged range, hidden sheet, native chart, embedded image, and sparse-range fixture."
+    },
+    {
+      "name": "beta-process-map.jpg",
+      "bytes": 67340,
+      "sha256": "b5b63b80d5ac57176fe4f503aac4c9df1aea6096ac855a8b08fa5e9fabf44bec",
+      "purpose": "Compressed whole-image process map, OCR, and beta isolation canary fixture."
+    },
+    {
+      "name": "corrupt-source.pdf",
+      "bytes": 35,
+      "sha256": "e45fd38a2e0f8856a3fc93b518ca47a1b15e2689322af43fe6c90b15a31625cd",
+      "purpose": "Recognized-signature but structurally corrupt PDF failure fixture."
+    },
+    {
+      "name": "mismatched-content.pdf",
+      "bytes": 67730,
+      "sha256": "6f155c80e9b2bf8e7ead728a0dceb9f705e95a1d13239b2139e400c309d0188b",
+      "purpose": "PNG bytes renamed as PDF to prove independent extension, MIME, and signature validation."
+    },
+    {
+      "name": "unsupported-diagram.vsdx",
+      "bytes": 582,
+      "sha256": "e9d6fcd770c007809abe6c5cecc57a69526ea180a41753c8669f28a344b1fa6d",
+      "purpose": "Explicit unsupported Visio rejection fixture."
+    }
+  ],
+  "requiredScenarios": [
+    "mixed text, table, and image content",
+    "scanned PDF content",
+    "chart content",
+    "organization chart content",
+    "process map content",
+    "hostile source instructions treated only as evidence",
+    "mismatched extension and content rejection",
+    "recognized but corrupt source rejection",
+    "unsupported VSDX rejection",
+    "two-engagement isolation canaries",
+    "concurrent duplicate upload",
+    "changed-content version activation and rollback"
+  ],
+  "limitations": [
+    "All fixture evidence is synthetic and contains no production or personal data.",
+    "Real Gemini vision and embedding calls are intentionally outside this offline fixture manifest and remain NOT RUN."
+  ]
+}
